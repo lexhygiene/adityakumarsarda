@@ -255,7 +255,7 @@ export default function App() {
         </section>
 
         {/* Philosophy Section */}
-        <section className="space-y-16">
+        <section id="vision" className="space-y-16">
           <div className="text-center space-y-4">
             <h2 className="text-xs uppercase tracking-[0.4em] font-bold text-accent-green">Leadership Philosophy</h2>
             <h3 className="text-4xl font-serif italic text-white">The Foundation of Success</h3>
