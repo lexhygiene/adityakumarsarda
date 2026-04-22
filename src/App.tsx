@@ -103,7 +103,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-bg selection:bg-accent-orange/30 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-bg selection:bg-accent-orange/30 selection:text-white relative">
       {/* Background Glows */}
       <div className="bg-glow glow-orange" />
       <div className="bg-glow glow-green" />
