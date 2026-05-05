@@ -223,7 +223,7 @@ export default function App() {
               <img 
                 src="https://res.cloudinary.com/dgt6ktxld/image/upload/v1776884416/446d3335-aaa2-4369-85c3-79b469502ea1.png" 
                 alt="Aditya Sarda"
-                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                className="w-full h-full object-cover object-top transition-all duration-700 hover:scale-105"
                 referrerPolicy="no-referrer"
               />
             </div>
