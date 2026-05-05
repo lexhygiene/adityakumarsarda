@@ -104,10 +104,12 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-bg selection:bg-accent-primary/30 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-bg selection:bg-accent-primary/30 selection:text-white relative">
       {/* Background Glows */}
-      <div className="bg-glow glow-primary" />
-      <div className="bg-glow glow-secondary" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="bg-glow glow-primary" />
+        <div className="bg-glow glow-secondary" />
+      </div>
 
       {/* Navigation */}
       <nav 
@@ -399,11 +401,11 @@ export default function App() {
                 </div>
               </div>
            </div>
-           <div className="md:col-span-3 card-glass !p-10 space-y-8">
+           <div className="md:col-span-3 card-glass p-6 md:p-10 space-y-8">
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                 <div className="grid md:grid-cols-2 gap-6">
-                    <input type="text" className="bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/30" placeholder="Your Name" />
-                    <input type="email" className="bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/30" placeholder="Email Address" />
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" className="w-full bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/30" placeholder="Your Name" />
+                    <input type="email" className="w-full bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/30" placeholder="Email Address" />
                  </div>
                  <textarea className="w-full bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/30 min-h-[150px]" placeholder="Your Message"></textarea>
                  <button className="contact-pill w-full !py-5 uppercase tracking-[0.2em]">Send Inquiry</button>
