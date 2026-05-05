@@ -104,7 +104,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-bg selection:bg-accent-primary/30 selection:text-white relative">
+    <div className="min-h-screen bg-bg selection:bg-accent-primary/30 selection:text-white relative overflow-x-hidden w-full flex flex-col">
       {/* Background Glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="bg-glow glow-primary" />
@@ -227,7 +227,7 @@ export default function App() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 glass !rounded-2xl p-6 flex flex-col items-center text-center">
+            <div className="absolute -bottom-2 -right-2 md:-bottom-6 md:-right-6 glass !rounded-2xl p-4 md:p-6 flex flex-col items-center text-center">
               <span className="text-2xl md:text-3xl font-serif text-accent-primary leading-tight">Chairman & MD</span>
               <span className="text-[10px] uppercase tracking-widest font-bold text-text-muted mt-1">Axis Group</span>
             </div>

@@ -14,11 +14,13 @@
 }
 
 @layer base {
-  html {
-    /* Removing scroll-behavior: smooth as it can cause conflicts with motion libraries */
+  html, body {
+    @apply overflow-x-hidden w-full;
+    touch-action: pan-y;
+    overscroll-behavior-x: none;
   }
   body {
-    @apply bg-bg text-text-main antialiased font-sans overflow-x-hidden;
+    @apply bg-bg text-text-main antialiased font-sans;
   }
   h1, h2, h3, .font-serif {
     @apply font-serif;
