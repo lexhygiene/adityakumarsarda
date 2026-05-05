@@ -4,13 +4,13 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
   
-  --color-bg: #09090b;
-  --color-card: rgba(255, 255, 255, 0.03);
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-accent-orange: #f27d26;
-  --color-accent-green: #2d5a27;
-  --color-text-main: #f4f4f5;
-  --color-text-muted: #a1a1aa;
+  --color-bg: #0A1128;
+  --color-card: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(255, 255, 255, 0.15);
+  --color-accent-primary: #3B82F6;
+  --color-accent-secondary: #93C5FD;
+  --color-text-main: #FFFFFF;
+  --color-text-muted: #E2E8F0;
 }
 
 @layer base {
@@ -36,11 +36,11 @@
     @apply absolute w-[400px] h-[400px] rounded-full blur-[100px] opacity-10 -z-10;
     will-change: transform;
   }
-  .glow-orange { @apply bg-accent-orange top-[-100px] right-[-100px]; }
-  .glow-green { @apply bg-accent-green bottom-[-100px] left-[-100px]; }
+  .glow-primary { @apply bg-accent-primary top-[-100px] right-[-100px]; }
+  .glow-secondary { @apply bg-accent-secondary bottom-[-100px] left-[-100px]; }
   
   .contact-pill {
-    @apply px-5 py-2 border border-accent-orange rounded-full text-accent-orange font-semibold text-sm hover:bg-accent-orange hover:text-white transition-all;
+    @apply px-5 py-2 border border-accent-primary rounded-full text-accent-primary font-semibold text-sm hover:bg-accent-primary hover:text-white transition-all;
   }
 }
 

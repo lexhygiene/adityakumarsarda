@@ -26,8 +26,8 @@ const businesses = [
     description: 'Revitalizing India\'s golden fiber through modern manufacturing and export trade, focusing on eco-conscious solutions.',
     icon: Leaf,
     color: 'rgba(242, 125, 38, 0.1)',
-    accent: 'text-accent-orange',
-    accentBg: 'bg-accent-orange',
+    accent: 'text-accent-primary',
+    accentBg: 'bg-accent-primary',
     link: 'https://axisgroupco.com/business/jute'
   },
   {
@@ -46,8 +46,8 @@ const businesses = [
     description: 'Curating premium commercial asset portfolios that redefine modern Indian business infrastructure.',
     icon: Building2,
     color: 'rgba(242, 125, 38, 0.1)',
-    accent: 'text-accent-orange',
-    accentBg: 'bg-accent-orange',
+    accent: 'text-accent-primary',
+    accentBg: 'bg-accent-primary',
     link: 'https://axisgroupco.com/business/real-estate'
   },
   {
@@ -88,6 +88,7 @@ const philosophy = [
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [readMoreExpanded, setReadMoreExpanded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -103,10 +104,10 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-bg selection:bg-accent-orange/30 selection:text-white relative">
+    <div className="min-h-screen bg-bg selection:bg-accent-primary/30 selection:text-white relative">
       {/* Background Glows */}
-      <div className="bg-glow glow-orange" />
-      <div className="bg-glow glow-green" />
+      <div className="bg-glow glow-primary" />
+      <div className="bg-glow glow-secondary" />
 
       {/* Navigation */}
       <nav 
@@ -163,7 +164,7 @@ export default function App() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-3xl font-serif tracking-tight hover:text-accent-orange transition-colors"
+                  className="text-3xl font-serif tracking-tight hover:text-accent-primary transition-colors"
                 >
                   {link.name}
                 </a>
@@ -189,7 +190,7 @@ export default function App() {
             className="max-w-4xl"
           >
             <h1 className="text-6xl md:text-8xl font-normal tracking-tight mb-8 leading-[1.1]">
-              Building <span className="italic text-accent-orange">Enterprises</span> Through Discipline & Vision
+              Building <span className="italic text-accent-primary">Enterprises</span> Through Discipline & Vision
             </h1>
             <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
               <p className="text-xl text-text-muted leading-relaxed font-light flex-grow max-w-2xl">
@@ -200,7 +201,7 @@ export default function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 10 }}
-                className="flex items-center gap-4 text-accent-orange font-bold tracking-widest text-xs uppercase group translate-y-1"
+                className="flex items-center gap-4 text-accent-primary font-bold tracking-widest text-xs uppercase group translate-y-1"
               >
                 Explore Axis Group <ArrowRight size={16} />
               </motion.a>
@@ -224,31 +225,52 @@ export default function App() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 glass !rounded-2xl p-8 flex flex-col items-center">
-              <span className="text-4xl font-serif text-accent-orange">BU</span>
-              <span className="text-[10px] uppercase tracking-widest font-bold text-text-muted">Boston University Alumnus</span>
+            <div className="absolute -bottom-6 -right-6 glass !rounded-2xl p-6 flex flex-col items-center text-center">
+              <span className="text-2xl md:text-3xl font-serif text-accent-primary leading-tight">Chairman & MD</span>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-text-muted mt-1">Axis Group</span>
             </div>
           </motion.div>
 
           <div className="space-y-8">
-            <h2 className="text-xs uppercase tracking-[0.4em] font-bold text-accent-orange">My Journey</h2>
+            <h2 className="text-xs uppercase tracking-[0.4em] font-bold text-accent-primary">My Journey</h2>
             <h3 className="text-4xl md:text-5xl font-serif leading-tight">Revitalizing Traditions, Scaling Horizons</h3>
             <div className="space-y-6 text-text-muted text-lg font-light leading-relaxed">
               <p>
-                Aditya Kumar Sarda began his professional journey after completing his BSBA from Boston University, USA. He entered the family business at a time when the jute industry was under severe stress.
+                Shri Aditya Sarda, born on 13th August 1976 is the Managing Director of Axis Group having a strong presence in the real estate industry for the last 17 years and has been a pioneer in different commercial businesses. Having completed his graduation in BSBA from Boston University, USA, he made his foray into the family business and focused his attention on expanding his business in the jute industry that had been India's major export earner.
               </p>
-              <p>
-                Through focused execution and strategic intervention, he played a key role in reviving and scaling the business into a competitive and profitable enterprise. Today, his leadership extends across mining, real estate, and warehousing.
-              </p>
+              <AnimatePresence>
+                {readMoreExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="space-y-6 overflow-hidden"
+                  >
+                    <p>
+                      Through focused execution and strategic intervention, he played a key role in reviving and scaling the business into a competitive and profitable enterprise. Today, he stands tall in all business lists in the national and international competitive market.
+                    </p>
+                    <p>
+                      He began his career in 1999 with the launch of an AAA category Commercial Complex in Kolkata. His knowledge and expertise are commendable in diversified sectors like jute trading, real estate management, and mining. He has played a key role in Axis Group's overall success in various commercial fields focusing more on Real Estate and Mining, and was also appointed the Director of West Bengal State Warehousing Corporation by the Central Government.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <button 
+                onClick={() => setReadMoreExpanded(!readMoreExpanded)}
+                className="contact-pill inline-flex items-center gap-2 mt-4"
+              >
+                {readMoreExpanded ? 'Read Less' : 'Read More'} 
+                <ChevronRight className={`transition-transform ${readMoreExpanded ? 'rotate-90' : ''}`} size={16} />
+              </button>
             </div>
             <div className="flex gap-12 pt-4">
                <div>
                   <div className="text-2xl font-serif text-white">Execution</div>
-                  <div className="text-xs uppercase tracking-widest text-accent-orange font-bold mt-1">Discipline</div>
+                  <div className="text-xs uppercase tracking-widest text-accent-primary font-bold mt-1">Discipline</div>
                </div>
                <div>
                   <div className="text-2xl font-serif text-white">Strategic</div>
-                  <div className="text-xs uppercase tracking-widest text-accent-orange font-bold mt-1">Clarity</div>
+                  <div className="text-xs uppercase tracking-widest text-accent-primary font-bold mt-1">Clarity</div>
                </div>
             </div>
           </div>
@@ -257,7 +279,7 @@ export default function App() {
         {/* Philosophy Section */}
         <section id="vision" className="space-y-16">
           <div className="text-center space-y-4">
-            <h2 className="text-xs uppercase tracking-[0.4em] font-bold text-accent-green">Leadership Philosophy</h2>
+            <h2 className="text-xs uppercase tracking-[0.4em] font-bold text-accent-secondary">Leadership Philosophy</h2>
             <h3 className="text-4xl font-serif italic text-white">The Foundation of Success</h3>
           </div>
           
@@ -269,9 +291,9 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="p-8 glass rounded-[2rem] border-white/5 space-y-4 hover:border-accent-green/30 transition-all flex flex-col justify-center text-center group"
+                className="p-8 glass rounded-[2rem] border-white/5 space-y-4 hover:border-accent-secondary/30 transition-all flex flex-col justify-center text-center group"
               >
-                <div className="text-accent-green font-bold text-lg font-serif italic group-hover:scale-110 transition-transform">0{idx + 1}</div>
+                <div className="text-accent-secondary font-bold text-lg font-serif italic group-hover:scale-110 transition-transform">0{idx + 1}</div>
                 <h4 className="text-white font-semibold text-sm uppercase tracking-wider">{item.title}</h4>
                 <p className="text-text-muted text-xs leading-relaxed font-light">
                   {item.content}
@@ -285,7 +307,7 @@ export default function App() {
         <section id="businesses" className="space-y-16">
           <div className="flex justify-between items-end">
             <div className="space-y-4">
-              <h2 className="text-xs uppercase tracking-[0.4em] font-bold text-accent-orange">Industrial Impact</h2>
+              <h2 className="text-xs uppercase tracking-[0.4em] font-bold text-accent-primary">Industrial Impact</h2>
               <h3 className="text-4xl md:text-6xl font-serif">Building Enterprises</h3>
             </div>
             <div className="h-[1px] hidden md:block flex-grow mx-16 bg-border mb-4 opacity-30" />
@@ -333,7 +355,7 @@ export default function App() {
         <section id="philanthropy" className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2 space-y-8">
             <div className="space-y-4">
-              <h2 className="text-xs uppercase tracking-[0.4em] font-bold text-accent-orange">Social Impact</h2>
+              <h2 className="text-xs uppercase tracking-[0.4em] font-bold text-accent-primary">Social Impact</h2>
               <h3 className="text-4xl md:text-5xl font-serif">Axis Foundation</h3>
             </div>
             <p className="text-lg text-text-muted font-light leading-relaxed">
@@ -342,14 +364,14 @@ export default function App() {
             <div className="space-y-4">
               {['Education', 'Healthcare', 'Community Development'].map((item) => (
                 <div key={item} className="flex items-center gap-4 text-white font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent-orange" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent-primary" />
                   {item}
                 </div>
               ))}
             </div>
           </div>
-          <div className="lg:col-span-3 card-glass !p-12 !bg-accent-green/5 relative overflow-hidden group">
-             <div className="absolute -top-12 -right-12 text-accent-green opacity-5 group-hover:rotate-12 transition-transform duration-1000">
+          <div className="lg:col-span-3 card-glass !p-12 !bg-accent-secondary/5 relative overflow-hidden group">
+             <div className="absolute -top-12 -right-12 text-accent-secondary opacity-5 group-hover:rotate-12 transition-transform duration-1000">
                 <Leaf size={320} />
              </div>
              <div className="relative z-10 space-y-8">
@@ -363,27 +385,27 @@ export default function App() {
 
         {/* Contact Form Integrated in Bento style */}
         <section id="contact" className="grid md:grid-cols-5 gap-6">
-           <div className="md:col-span-2 card-glass !bg-accent-orange/5 space-y-8 flex flex-col justify-between">
+           <div className="md:col-span-2 card-glass !bg-accent-primary/5 space-y-8 flex flex-col justify-between">
               <div className="space-y-4">
-                <h2 className="text-xs uppercase tracking-widest font-bold text-accent-orange">Inquiries</h2>
+                <h2 className="text-xs uppercase tracking-widest font-bold text-accent-primary">Inquiries</h2>
                 <h3 className="text-4xl font-serif">Get in touch</h3>
                 <p className="text-text-muted font-light">Interested in collaborations or learning more about our ventures?</p>
               </div>
               <div className="space-y-4">
-                <a href="mailto:contact@adityasarda.com" className="block text-xl hover:text-accent-orange transition-colors">contact@adityasarda.com</a>
+                <a href="mailto:contact@adityasarda.com" className="block text-xl hover:text-accent-primary transition-colors">contact@adityasarda.com</a>
                 <div className="flex gap-4">
                    <Linkedin className="text-text-muted hover:text-white cursor-pointer" />
-                   <ArrowRight className="text-accent-orange" />
+                   <ArrowRight className="text-accent-primary" />
                 </div>
               </div>
            </div>
            <div className="md:col-span-3 card-glass !p-10 space-y-8">
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                  <div className="grid md:grid-cols-2 gap-6">
-                    <input type="text" className="bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-orange transition-all placeholder:text-text-muted/30" placeholder="Your Name" />
-                    <input type="email" className="bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-orange transition-all placeholder:text-text-muted/30" placeholder="Email Address" />
+                    <input type="text" className="bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/30" placeholder="Your Name" />
+                    <input type="email" className="bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/30" placeholder="Email Address" />
                  </div>
-                 <textarea className="w-full bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-orange transition-all placeholder:text-text-muted/30 min-h-[150px]" placeholder="Your Message"></textarea>
+                 <textarea className="w-full bg-white/5 border border-border px-6 py-4 rounded-xl focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/30 min-h-[150px]" placeholder="Your Message"></textarea>
                  <button className="contact-pill w-full !py-5 uppercase tracking-[0.2em]">Send Inquiry</button>
               </form>
            </div>
