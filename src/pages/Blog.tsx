@@ -9,7 +9,7 @@ import { Calendar, User, ArrowRight } from 'lucide-react';
 interface Post {
   title: string;
   slug: { current: string };
-  mainImage: any;
+  mainImage: string;
   publishedAt: string;
   excerpt: string;
 }
@@ -77,7 +77,7 @@ export default function Blog() {
                 <Link to={`/blog/${post.slug.current}`} className="block relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/5 shadow-2xl">
                   {post.mainImage && (
                     <img
-                      src={urlFor(post.mainImage).width(800).url()}
+                      src={post.mainImage}
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />

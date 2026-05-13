@@ -109,7 +109,7 @@ export default function BlogPost() {
           <div className="relative aspect-[16/9] rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl">
             {post.mainImage && (
               <img
-                src={urlFor(post.mainImage).width(1200).url()}
+                src={post.mainImage}
                 alt={post.title}
                 className="w-full h-full object-cover"
               />
