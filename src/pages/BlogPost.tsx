@@ -5,7 +5,7 @@ import { client, urlFor } from '../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Calendar, ArrowLeft, Share2 } from 'lucide-react';
+import { Calendar, ArrowLeft, Share2, User } from 'lucide-react';
 
 export default function BlogPost() {
   const { slug } = useParams();
