@@ -38,6 +38,7 @@ export default function Blog() {
     };
 
     fetchPosts();
+    window.scrollTo(0, 0);
   }, []);
 
   return (
